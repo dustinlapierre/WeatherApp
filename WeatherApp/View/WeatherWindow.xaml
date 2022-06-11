@@ -10,7 +10,7 @@
     <Window.Resources>
         <vm:WeatherVM x:Key="vm" />
     </Window.Resources>
-    
+
     <Grid DataContext="{StaticResource vm}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
