@@ -23,11 +23,17 @@
                     Command="{Binding SearchCommand}"
                     CommandParameter="{Binding Query}"
                     Content="Search" />
-            <ListView>
+            <ListView ItemsSource="{Binding Cities}"
+                      SelectedValue="{Binding SelectedCity}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <Grid>
-                            <TextBlock/>
+                            <TextBlock Text="{Binding SelectedCity}">
+                                <Run Text="{Binding LocalizedName}"/>
+                                <Run Text=", "/>
+                                <Run Text="{Binding AdministrativeArea.LocalizedName}"/>
+                                <Run Text="{Binding Country.LocalizedName}"/>
+                            </TextBlock>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -53,7 +59,7 @@
             </StackPanel>
             <TextBlock Grid.Column="1"
                        VerticalAlignment="Center"
-                       Text="{Binding Temperature.Metric.Value, StringFormat={}{0}F}"
+                       Text="{Binding Temperature.Imperial.Value, StringFormat={}{0}F}"
                        Foreground="#f4f4f8"
                        FontSize="30"
                        Margin="20, 0" />
